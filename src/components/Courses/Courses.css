@@ -1,0 +1,115 @@
+.courses_list{
+    position: relative;
+}
+.list_carousel{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    transition: 1s;
+}
+.courses{
+    margin-top: 20px;
+    position: relative;
+}
+.courses > h1{
+    color: var(--dark-text);
+}
+.card{
+    width: calc(50% - 10px);
+    min-height: 200px;
+    border: 1px solid var(--bg-blue);
+    display: flex;
+    background: var(--bg-color-white);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: .2s;
+}
+.card:nth-of-type(2n-1){
+    margin-right: 20px;
+}
+.card:hover .card_image img{
+    transform: scale(1.1);
+}
+.card_image{
+    flex: 1;
+    overflow: hidden;
+}
+.card_image img{
+    width: 100%;
+    transition: .2s;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card_info{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px;
+}
+.card_link{
+    margin-top: 10px;
+}
+.card_link button{
+    font-size: 14px;
+    background: var(--bg-blue);
+    border-radius: 10px;
+    border: 1px solid var(--bg-blue);
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--text-hover-color);
+    display: flex;
+    align-items: center;
+    transition: .2s;
+}
+.card_link button:hover{
+    opacity: 0.7;
+}
+.card_time{
+    color: var(--gray-text-color);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.card_title{
+    color: var(--dark-text);
+}
+.desc{
+    margin: 5px 0;
+    color: var(--text-hover-color);
+}
+
+.applied{
+    color: var(--bg-color-white) !important;
+    background: var(--green-bg-color) !important;
+}
+
+.breadcrumbs{
+    display: flex;
+    align-items: center;
+}
+.breadcrumbs a{
+    color: var(--dark-text);
+    text-decoration: none;
+}
+.breadcrumbs a:hover{
+    color: var(--text-hover-color);
+}
+.breadcrumbs p{
+    color: var(--gray-text-color);
+}
+.cip_content{
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.cip_content_info{
+    width: 100%;
+}
