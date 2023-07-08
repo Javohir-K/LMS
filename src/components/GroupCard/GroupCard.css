@@ -1,0 +1,17 @@
+.group-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.group-card > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.group-card > :where(div, h4) {
+  flex: 1;
+  display: flex;
+  position: relative;
+}

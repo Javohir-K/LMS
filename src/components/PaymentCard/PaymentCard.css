@@ -1,0 +1,12 @@
+.payment-card{
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+.payment-card > div{
+    padding: .7rem 0;
+    flex: 1;
+}
+.payment-card:nth-child(2n-1){
+    background: #2d323c;
+}

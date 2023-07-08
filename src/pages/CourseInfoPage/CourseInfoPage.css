@@ -1,0 +1,10 @@
+.course-info-page{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.cip-top,.cip-bottom, .cip-groups-list{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}

@@ -1,0 +1,8 @@
+.statistics-wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.statistics > :where(p, h2) {
+  margin-bottom: .5rem;
+}

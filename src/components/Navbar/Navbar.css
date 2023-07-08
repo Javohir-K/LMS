@@ -1,0 +1,62 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 1111;
+  border-bottom: 1px solid var(--grey);
+  background: var(--primary);
+}
+.navbar-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.logo,
+.links {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  gap: 0.5rem;
+}
+.links {
+  gap: 1rem;
+}
+.links a p {
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.search-wrap {
+  display: flex;
+  gap: 0.3rem;
+  border: 1px solid var(--grey);
+  background: var(--grey);
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+}
+.search {
+  border: none;
+  outline: none;
+  color: var(--light);
+  font-size: 1rem;
+}
+.navbar-right button {
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.3rem;
+}

@@ -1,7 +1,0 @@
- text-hover-color: #3461ff
-text-color-main: #5f5f5f
-text-color-bold: #4c5258
-bg-color-main: #f7f8fa
-bg-color-white: #ffffff
-bg-purple: rgba(135, 50, 255, 0.22)
-bg-blue: rgba(52, 96, 255, 0.22)

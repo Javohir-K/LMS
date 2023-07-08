@@ -1,0 +1,38 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.recent-payments-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.rpl-table-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  padding-left: 1rem;
+  border-bottom: 1px solid var(--grey);
+}
+.rpl-table-header > div {
+  flex: 1;
+  flex-wrap: nowrap;
+}
+.rpl-table-header > div > p {
+  font-weight: bold;
+}
+.rpl-table-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-wrap {
+  padding: 2rem 1rem;
+  width: fit-content;
+  border-radius: 0.5rem;
+}

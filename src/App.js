@@ -1,18 +1,13 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
-import Sidebar from "./components/Sidebar";
-import Dashboard from "./components/Dashboard";
-import Courses from "./components/Courses";
 import Login from "./components/Login";
-import Settings from "./components/Settings";
-
-
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
+import Dashboard from "./pages/Dashboard";
+
 
 function App() {
-  const [{user}, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -30,35 +25,17 @@ function App() {
       }
     });
   }, []);
-  
- 
 
   return (
-    <BrowserRouter>
-      <div className="app">
-        {user ? 
-        <>
-        <Sidebar />
-        <div className="main_content">
-          <Switch>
-            <Route exact path="/">
-              <Dashboard />
-            </Route>
-            <Route  path="/courses">
-              <Courses />
-            </Route>
-            <Route path="/signin">
-              <Login />
-            </Route>
-            <Route path="/settings">
-              <Settings/>
-            </Route>
-          </Switch>
-        </div> </>
-      : <Login/>  
-      }
-      </div>
-    </BrowserRouter>
+    <div className="app bg-dark">
+      {user ? (
+          <div className="main_content">
+            <Dashboard />
+          </div>
+      ) : (
+        <Login />
+      )}
+    </div>
   );
 }
 
