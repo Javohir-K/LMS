@@ -1,8 +1,6 @@
 import React from "react";
 import "./StatisticsCard.css";
 
-
-
 function StatisticsCard({ count, name, icon }) {
   return (
     <div className="statistics-card wrapper">

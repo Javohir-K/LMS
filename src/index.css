@@ -1,6 +1,6 @@
 :root {
   --primary: #191b1f;
-  --secondary: #212630;
+  --secondary: #26292f;
   --light: #deeafa;
   --grey: #393e45;
   --accent: #2ec866;
@@ -29,7 +29,7 @@ body {
   background-color: var(--grey);
 }
 .container {
-  padding: 1rem 5%;
+  padding: 1rem 3%;
 }
 .wrapper {
   background: var(--secondary);
@@ -65,4 +65,10 @@ a {
 button {
   border: none;
   outline: none;
+}
+form > button {
+  transition: 0.2s ease-in-out;
+}
+form > button:hover {
+  opacity: 0.8;
 }

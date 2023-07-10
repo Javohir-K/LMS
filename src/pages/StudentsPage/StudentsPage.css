@@ -1,0 +1,28 @@
+.sp-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-wrap {
+  display: flex;
+  gap: 0.3rem;
+  border: 1px solid var(--grey);
+  background: var(--grey);
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+}
+.search {
+  border: none;
+  outline: none;
+  color: var(--light);
+  font-size: 1rem;
+  width: 20rem;
+}
+
+.sp-top button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+}

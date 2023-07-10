@@ -1,0 +1,41 @@
+.acp-form form > h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.acp-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
+}
+.acp-form form {
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 40rem;
+}
+.acp-form form > div {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.acp-form form > div > h4 {
+  flex: 1;
+}
+.acp-form form > div > input {
+  flex: 2;
+  background: var(--grey);
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: .5rem;
+  color: var(--light);
+}
+
+.acp-form form > button{
+    padding: .5rem;
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    font-size: 1rem;
+    font-weight: bold;
+}

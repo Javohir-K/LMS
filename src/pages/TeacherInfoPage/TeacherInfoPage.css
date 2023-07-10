@@ -1,0 +1,55 @@
+.teacher-info-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.teacher-info-header {
+  padding: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  background: url("https://images.unsplash.com/photo-1661956602153-23384936a1d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
+    rgba(0, 0, 0, 0.4);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center center;
+}
+.tih-cover img {
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 0.3rem solid var(--accent);
+}
+.tih-info {
+  border-radius: 1rem;
+  background: rgba(32, 31, 36, 0.7);
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.tih-info > p {
+  font-size: 1.1rem;
+}
+.tih-info-additionals {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.teacher-info-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.tim-groups-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.tim-groups-list .group-teacher {
+  display: none;
+}

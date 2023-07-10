@@ -1,0 +1,29 @@
+/* Loading css */
+.loading {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  width: 4rem;
+  height: 4rem;
+  border: 0.5rem solid var(--secondary);
+  border-left-color: var(--accent);
+  border-radius: 50%;
+  animation-name: loadingAnim;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  margin-bottom: 1rem;
+}
+
+@keyframes loadingAnim {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}

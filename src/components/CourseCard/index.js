@@ -3,6 +3,7 @@ import "./CourseCard.css";
 import { Link } from "react-router-dom";
 
 function CourseCard({
+  _id,
   title,
   cover,
   schedule,
@@ -12,8 +13,8 @@ function CourseCard({
   return (
     <div className="course-card wrapper">
       <div className="cc-top">
-        <Link to={'/courses/course-info'}>
-        <img src={cover} alt="" />
+        <Link to={`/courses/${_id}`}>
+          <img src={cover} alt="" />
         </Link>
       </div>
       <div className="cc-bottom">

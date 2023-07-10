@@ -1,20 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./CourseInfoPage.css";
 import GroupCard from "../../components/GroupCard";
+import { Link, useParams } from "react-router-dom";
+import { db } from "../../firebase";
+import LoadingPage from "../LoadingPage";
 
 function CourseInfoPage() {
+  const [courseInfo, setCourseInfo] = useState(null);
+  const [groups, setGroups] = useState([]);
+  const [teacher, setTeacher] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    db.collection("courses")
+      .doc(id)
+      .get()
+      .then((res) => {
+        setCourseInfo(res.data());
+      });
+
+    db.collection("teachers").onSnapshot((snapshot) => {
+      setTeacher(
+        snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+      );
+    });
+
+    db.collection("groups")
+      .where("courseId", "==", id)
+      .onSnapshot((snapshot) => {
+        setGroups(
+          snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+        );
+      });
+  }, []);
+
+  if (courseInfo === null) {
+    return <LoadingPage />;
+  }
+  // console.log(teacher);
+
   return (
     <div className="course-info-page">
       <div className="cip-top">
-        <h2>English</h2>
-        <p>
-          Description: Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Minima omnis quibusdam corporis, velit ad ut perspiciatis est ipsa
-          ullam labore?
-        </p>
+        <h2>{courseInfo?.name}</h2>
+        <p>Description: {courseInfo?.desc}</p>
+        <p>Schedule: {courseInfo?.schedule}</p>
       </div>
       <div className="cip-bottom">
-        <h2>Groups:</h2>
+        <div className="cip-bottom-action">
+          <h2>Groups:</h2>
+          <Link to={`/courses/${id}/add-new-group`}>
+            <button className="bg-accent text-white">Create new group</button>
+          </Link>
+        </div>
         <div className="cip-groups-list">
           <div className="group-card wrapper">
             <h4>Level</h4>
@@ -23,54 +61,28 @@ function CourseInfoPage() {
             <h4>Schedule</h4>
             <h4>Teacher</h4>
           </div>
-          <GroupCard
-            level={"beginner"}
-            index={1}
-            name={"BEG-001"}
-            schedule={"09:00-11:00 (Mon, Wed, Fri)"}
-            numberOfStudents={"10"}
-            teacher={"Mr.Adam"}
-          />
-          <GroupCard
-            level={"beginner"}
-            index={1}
-            name={"BEG-001"}
-            schedule={"09:00-11:00 (Mon, Wed, Fri)"}
-            numberOfStudents={"10"}
-            teacher={"Mr.Adam"}
-          />
-          <GroupCard
-            level={"beginner"}
-            index={1}
-            name={"BEG-001"}
-            schedule={"09:00-11:00 (Mon, Wed, Fri)"}
-            numberOfStudents={"10"}
-            teacher={"Mr.Adam"}
-          />
-          <GroupCard
-            level={"beginner"}
-            index={1}
-            name={"BEG-001"}
-            schedule={"09:00-11:00 (Mon, Wed, Fri)"}
-            numberOfStudents={"10"}
-            teacher={"Mr.Adam"}
-          />
-          <GroupCard
-            level={"beginner"}
-            index={1}
-            name={"BEG-001"}
-            schedule={"09:00-11:00 (Mon, Wed, Fri)"}
-            numberOfStudents={"10"}
-            teacher={"Mr.Adam"}
-          />
-          <GroupCard
-            level={"beginner"}
-            index={1}
-            name={"BEG-001"}
-            schedule={"09:00-11:00 (Mon, Wed, Fri)"}
-            numberOfStudents={"10"}
-            teacher={"Mr.Adam"}
-          />
+
+          {groups
+            ? groups.map((group) => (
+                <GroupCard
+                  _id={group.data.groupTeacher}
+                  level={group.data.level}
+                  name={group.data.name}
+                  schedule={group.data.schedule}
+                  numberOfStudents={"10"}
+                  teacher={teacher
+                    .filter((item) => {
+                      return item.id === group.data.groupTeacher;
+                    })
+                    .map((x) => (
+                      <div className="cip-group-teacher bg-dark">
+                        <img src={x.data.image} alt="" />
+                        <p>{x.data.name}</p>
+                      </div>
+                    ))}
+                />
+              ))
+            : "No groups for this course!"}
         </div>
       </div>
     </div>

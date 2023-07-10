@@ -1,6 +1,17 @@
-.courses-list{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-    gap: 1rem;
+.courses-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+.cp-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cp-top button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  font-size: 1rem;
 }

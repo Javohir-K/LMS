@@ -1,0 +1,111 @@
+.add-teacher-page > h2 {
+  text-align: center;
+}
+.atp-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.atp-form form {
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 40rem;
+}
+.atp-form form > div {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.atp-form form > div > h4 {
+  flex: 1;
+}
+.atp-form form > div > input {
+  flex: 2;
+  font-size: 1rem;
+  border: 1px solid var(--grey);
+  padding: 0.5rem;
+  outline: none;
+  background: var(--primary);
+  color: var(--light);
+}
+
+.atp-form form button {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+
+#photoInput {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 11;
+}
+.piw {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 2;
+}
+.piw_border {
+  position: relative;
+  padding: var(--pd-small);
+  width: 50%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  border: 2px dashed var(--bg-secondary);
+}
+.photoInput_wrapper {
+  border-radius: 5px;
+  position: relative;
+  height: 150px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  background: var(--bg-secondary);
+}
+.photoInput_wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+input[type="button"] {
+  cursor: pointer;
+  width: 50%;
+  margin-top: var(--mrg-small);
+  transition: 0.2s;
+}
+input[type="button"]:hover {
+  background: var(--color-dark);
+  color: var(--color-light);
+}
+.piw progress {
+  width: 50%;
+  height: 10px;
+  border-radius: 0;
+}
+
+#piw_remove_btn {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  cursor: pointer;
+}

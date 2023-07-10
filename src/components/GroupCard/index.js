@@ -2,11 +2,10 @@ import React from "react";
 import "./GroupCard.css";
 import { Link } from "react-router-dom";
 
-function GroupCard({ level, name, numberOfStudents, schedule, teacher, index }) {
+function GroupCard({ _id, level, name, numberOfStudents, schedule, teacher }) {
   return (
     <div className="group-card wrapper">
       <div>
-        <p>{index}</p>
         <p className="text-accent">#{level}</p>
       </div>
       <div>
@@ -18,8 +17,8 @@ function GroupCard({ level, name, numberOfStudents, schedule, teacher, index }) 
       <div>
         <p>{schedule}</p>
       </div>
-      <div>
-        <Link to={"/teachers"}>{teacher}</Link>
+      <div className="group-teacher">
+        <Link to={`/teachers/${_id}`}>{teacher}</Link>
       </div>
     </div>
   );

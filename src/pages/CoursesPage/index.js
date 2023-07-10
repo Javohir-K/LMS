@@ -1,66 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./CoursesPage.css";
 import CourseCard from "../../components/CourseCard";
+import { Link } from "react-router-dom";
+import { db } from "../../firebase";
+import LoadingPage from "../LoadingPage";
 
 function CoursesPage() {
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    db.collection("courses").onSnapshot((snapshot) => {
+      setCourses(
+        snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+      );
+    });
+  }, []);
+
+  if (courses.length === 0) {
+    return <LoadingPage />;
+  }
+
   return (
     <div className="course-page">
-      <h2>All Courses</h2>
+      <div className="cp-top">
+        <h2>All Courses</h2>
+        <Link to={"/add-course"}>
+          <button className="bg-accent text-white">Add course</button>
+        </Link>
+      </div>
       <div className="courses-list">
-        <CourseCard
-          title={"English"}
-          cover={
-            "https://www.englishexplorer.com.sg/wp-content/uploads/2019/05/a-short-history-of-how-the-english-language-came-to-be.jpg"
-          }
-          schedule={'Everyday'}
-          numberOfGroups={5}
-          numberOfStudents={58}
-        />
-        <CourseCard
-          title={"English"}
-          cover={
-            "https://www.englishexplorer.com.sg/wp-content/uploads/2019/05/a-short-history-of-how-the-english-language-came-to-be.jpg"
-          }
-          schedule={'Everyday'}
-          numberOfGroups={5}
-          numberOfStudents={58}
-        />
-        <CourseCard
-          title={"English"}
-          cover={
-            "https://www.englishexplorer.com.sg/wp-content/uploads/2019/05/a-short-history-of-how-the-english-language-came-to-be.jpg"
-          }
-          schedule={'Everyday'}
-          numberOfGroups={5}
-          numberOfStudents={58}
-        />
-        <CourseCard
-          title={"English"}
-          cover={
-            "https://www.englishexplorer.com.sg/wp-content/uploads/2019/05/a-short-history-of-how-the-english-language-came-to-be.jpg"
-          }
-          schedule={'Everyday'}
-          numberOfGroups={5}
-          numberOfStudents={58}
-        />
-        <CourseCard
-          title={"English"}
-          cover={
-            "https://www.englishexplorer.com.sg/wp-content/uploads/2019/05/a-short-history-of-how-the-english-language-came-to-be.jpg"
-          }
-          schedule={'Everyday'}
-          numberOfGroups={5}
-          numberOfStudents={58}
-        />
-        <CourseCard
-          title={"English"}
-          cover={
-            "https://www.englishexplorer.com.sg/wp-content/uploads/2019/05/a-short-history-of-how-the-english-language-came-to-be.jpg"
-          }
-          schedule={'Everyday'}
-          numberOfGroups={5}
-          numberOfStudents={58}
-        />
+        {courses.map((item) => (
+          <CourseCard
+            title={item.data.name}
+            _id={item.id}
+            cover={
+              "https://www.englishexplorer.com.sg/wp-content/uploads/2019/05/a-short-history-of-how-the-english-language-came-to-be.jpg"
+            }
+            schedule={item.data.schedule}
+            numberOfGroups={5}
+            numberOfStudents={58}
+          />
+        ))}
       </div>
     </div>
   );

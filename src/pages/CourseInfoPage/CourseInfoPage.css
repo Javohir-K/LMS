@@ -1,10 +1,37 @@
-.course-info-page{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.course-info-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-.cip-top,.cip-bottom, .cip-groups-list{
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
+.cip-top,
+.cip-bottom,
+.cip-groups-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.cip-bottom-action {
+  margin-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cip-bottom-action button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.cip-group-teacher {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.cip-group-teacher img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 50%;
 }

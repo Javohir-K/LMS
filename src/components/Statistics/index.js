@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Statistics.css";
 import StatisticsCard from "../StatisticsCard";
 import { format } from "date-fns";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChartLine } from "@fortawesome/free-solid-svg-icons";
+import { db } from "../../firebase";
 
 function Statistics() {
   const currentDate = format(new Date(), "MMM d, yyyy");
+  const [teachers, setTeachers] = useState([]);
+  const [groups, setGroups] = useState([])
+
+  useEffect(() => {
+    db.collection("teachers").onSnapshot((snapshot) => {
+      setTeachers(
+        snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+      );
+    });
+    db.collection("groups").onSnapshot((snapshot) => {
+      setGroups(
+        snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+      );
+    });
+  }, []);
 
   return (
     <div className="statistics">
@@ -19,13 +33,13 @@ function Statistics() {
           icon={<i class="fa-solid fa-graduation-cap"></i>}
         />
         <StatisticsCard
-          count={6}
+          count={teachers.length}
           name={"Teachers"}
           icon={<i class="fa-solid fa-person-chalkboard"></i>}
         />
         <StatisticsCard
-          count={14}
-          name={"Classes"}
+          count={groups.length}
+          name={'Groups'}
           icon={<i class="fa-solid fa-book"></i>}
         />
         <StatisticsCard
