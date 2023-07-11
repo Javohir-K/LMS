@@ -15,6 +15,7 @@ import LoadingPage from "../LoadingPage";
 function TeacherInfoPage() {
   const [teacherInfo, setTeacherInfo] = useState(null);
   const [groupList, setGroupList] = useState([]);
+  const [students, setStudents] = useState([]);
   const { id } = useParams();
   useEffect(() => {
     db.collection("teachers")
@@ -23,6 +24,12 @@ function TeacherInfoPage() {
       .then((res) => {
         setTeacherInfo(res.data());
       });
+
+    db.collection("students").onSnapshot((snapshot) => {
+      setStudents(
+        snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+      );
+    });
     db.collection("groups")
       .where("groupTeacher", "==", id)
       .onSnapshot((snapshot) => {
@@ -86,7 +93,11 @@ function TeacherInfoPage() {
                   level={item.data.level}
                   name={item.data.name}
                   schedule={item.data.schedule}
-                  numberOfStudents={"10"}
+                  numberOfStudents={
+                    students.filter((x) => {
+                      return x.data.groupId === item.id;
+                    }).length
+                  }
                 />
               ))
             : "No groups"}

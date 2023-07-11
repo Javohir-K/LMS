@@ -2,11 +2,31 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
- padding: .5rem 1rem;
- border-radius: .5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
 }
 .gip-top > :where(a, p) {
   display: flex;
   align-items: center;
   gap: 0.3rem;
+}
+.gip-students-list table {
+  margin-top: 2rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+.gip-students-list table :where(td, th) {
+  border: 2px solid var(--secondary);
+  text-align: left;
+  padding: 0.5rem;
+}
+.gip-students-list table td:nth-child(1) {
+  width: 4rem;
+}
+.gip-students-list table td:nth-child(2) {
+  width: 100%;
+  
+}
+.gip-students-list table tr:nth-child(even) {
+  background: var(--secondary);
 }

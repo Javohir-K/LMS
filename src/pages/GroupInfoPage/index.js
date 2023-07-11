@@ -10,7 +10,7 @@ function GroupInfoPage() {
   const [groupInfo, setGroupInfo] = useState(null);
   const [students, setStudents] = useState([]);
   const [teacher, setTeacher] = useState([]);
-  //   const [teacherId, setTeacherId] = useState("");
+  const [attendance, setAttendance] = useState('');
   const { id } = useParams();
 
   useEffect(() => {
@@ -38,6 +38,8 @@ function GroupInfoPage() {
     return <LoadingPage />;
   }
 
+  console.log(attendance);
+
   return (
     <div className="group-info-page">
       <div className="gip-top wrapper">
@@ -58,12 +60,28 @@ function GroupInfoPage() {
       </div>
       <div className="gip-bottom">
         <div className="gip-students-list">
-          {students.map((st, index) => (
-            <div>
-              <p>{(index += 1)}</p>
-              <h4>{st.data.name}</h4>
-            </div>
-          ))}
+          <table>
+            <tr>
+              <th>Index</th>
+              <th>Name</th>
+              <th>Attendance</th>
+            </tr>
+            {students.map((st, index) => (
+              <tr>
+                <td>{(index += 1)}</td>
+                <td>{st.data.name}</td>
+                <td>
+                  <input
+                    type="checkbox"
+                    value={'+'}
+                    onChange={(e) => setAttendance(e.target.value)}
+                    name=""
+                    id=""
+                  />
+                </td>
+              </tr>
+            ))}
+          </table>
         </div>
       </div>
     </div>

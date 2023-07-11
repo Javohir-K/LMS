@@ -2,7 +2,7 @@ import React from "react";
 import "./StudentCard.css";
 import { Link } from "react-router-dom";
 
-function StudentCard({ _id, name, phoneNumber, address, group }) {
+function StudentCard({ _id, startDate, name, phoneNumber, address, group }) {
   return (
     <Link to={`/students/${_id}`}>
       <div className="student-card wrapper">
@@ -17,6 +17,9 @@ function StudentCard({ _id, name, phoneNumber, address, group }) {
         </div>
         <div>
           <p>{phoneNumber}</p>
+        </div>
+        <div>
+          <p>{startDate}</p>
         </div>
       </div>
     </Link>

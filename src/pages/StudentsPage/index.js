@@ -70,6 +70,9 @@ function StudentsPage() {
           <div>
             <h4>Phone number</h4>
           </div>
+          <div>
+            <h4>Start date</h4>
+          </div>
         </div>
 
         {filteredPosts.length === 0

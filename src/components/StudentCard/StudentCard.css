@@ -7,4 +7,11 @@
 }
 .student-card > div {
   flex: 1;
+  overflow-x: hidden;
+}
+.student-card > div > p{
+  max-width: 90%;
+}
+.student-card > div:nth-last-child(1){
+  flex: .5;
 }

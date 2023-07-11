@@ -12,6 +12,7 @@ function AddStudentPage() {
   const [thisGroup, setThisGroup] = useState("");
   const [thisCourse, setThisCourse] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const [startDate, setStartDate] = useState("");
 
   useEffect(() => {
     db.collection("groups").onSnapshot((snapshot) => {
@@ -41,7 +42,8 @@ function AddStudentPage() {
         phoneNumber: phoneNumber,
         groupId: thisGroup,
         address: address,
-        courseId: thisCourse
+        courseId: thisCourse,
+        startDate: startDate,
       });
       setRedirect(true);
     }
@@ -85,6 +87,16 @@ function AddStudentPage() {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               name=""
+              id=""
+            />
+          </div>
+          <div>
+            <h4>Start date</h4>
+            <input
+              type="date"
+              name=""
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
               id=""
             />
           </div>
