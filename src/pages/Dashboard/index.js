@@ -11,6 +11,8 @@ import AddTeacherPage from "../AddTeacherPage";
 import AddCoursePage from "../AddCoursePage";
 import AddGroupPage from "../AddGroupPage";
 import StudentsPage from "../StudentsPage";
+import AddStudentPage from "../AddStudentPage";
+import GroupInfoPage from "../GroupInfoPage";
 
 function Dashboard() {
   return (
@@ -27,6 +29,8 @@ function Dashboard() {
           <Route element={<AddTeacherPage />} path="/add-teacher" />
           <Route element={<AddCoursePage />} path="/add-course" />
           <Route element={<StudentsPage />} path="/students" />
+          <Route element={<AddStudentPage />} path="/add-student" />
+          <Route element={<GroupInfoPage />} path="/groups/:id" />
         </Routes>
       </div>
     </div>

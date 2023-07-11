@@ -10,6 +10,7 @@ import {
   faChalkboardTeacher,
   faDashboard,
   faGraduationCap,
+  faMessage,
   faMoneyBill1,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -22,8 +23,16 @@ function Navbar() {
     }
   };
 
+  function switcher(e) {
+    let x = document.querySelectorAll("a#navBtn");
+    for (let i = 0; i < x.length; i++) {
+      x[i].classList.remove("active");
+    }
+    e.target.classList.add("active");
+  }
+
   return (
-    <div className="navbar bg-dark2">
+    <div className="navbar wrapper">
       <div className="navbar-wrap">
         <div className="navbar-left">
           <Link to={"/"}>
@@ -34,45 +43,45 @@ function Navbar() {
           </Link>
 
           <div className="links">
-            <Link to={"/"}>
+            <Link to={"/"} id="navBtn" className="active" onClick={(e)=>switcher(e)}>
               <div>
                 <FontAwesomeIcon icon={faDashboard} />
               </div>
               <p>Dashboard</p>
             </Link>
-            <Link to={"/courses"}>
+            <Link to={"/courses"} id="navBtn" onClick={(e)=>switcher(e)}>
               <div>
                 <FontAwesomeIcon icon={faBookAtlas} />
               </div>
               <p>Courses</p>
             </Link>
-            <Link to={"/teachers"}>
+            <Link to={"/teachers"} id="navBtn" onClick={(e)=>switcher(e)}>
               <div>
                 <FontAwesomeIcon icon={faChalkboardTeacher} />
               </div>
               <p>Teachers</p>
             </Link>
-            <Link to={"/students"}>
+            <Link to={"/students"} id="navBtn" onClick={(e)=>switcher(e)}>
               <div>
                 <FontAwesomeIcon icon={faGraduationCap} />
               </div>
               <p>Students</p>
             </Link>
-            <Link to={"/payments"}>
+            <Link to={"/payments"} id="navBtn" onClick={(e)=>switcher(e)}>
               <div>
                 <FontAwesomeIcon icon={faMoneyBill1} />
               </div>
               <p>Payments</p>
             </Link>
+            <Link to={"/messages"} id="navBtn" onClick={(e)=>switcher(e)}>
+              <div>
+                <FontAwesomeIcon icon={faMessage} />
+              </div>
+              <p>Messages</p>
+            </Link>
           </div>
         </div>
         <div className="navbar-right">
-          {/* <Link to={"/"}>
-            <i class="fa-regular fa-message"></i>
-          </Link>
-          <Link to={"/"}>
-            <i class="fa-regular fa-bell"></i>
-          </Link> */}
           <button onClick={handleAuth} className="bg-accent text-white">
             Logout
           </button>

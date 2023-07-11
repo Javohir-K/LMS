@@ -9,6 +9,7 @@ function CourseInfoPage() {
   const [courseInfo, setCourseInfo] = useState(null);
   const [groups, setGroups] = useState([]);
   const [teacher, setTeacher] = useState([]);
+  const [students, setStudents] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -21,6 +22,11 @@ function CourseInfoPage() {
 
     db.collection("teachers").onSnapshot((snapshot) => {
       setTeacher(
+        snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+      );
+    });
+    db.collection("students").onSnapshot((snapshot) => {
+      setStudents(
         snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
       );
     });
@@ -65,18 +71,23 @@ function CourseInfoPage() {
           {groups
             ? groups.map((group) => (
                 <GroupCard
+                  groupId={group.id}
                   _id={group.data.groupTeacher}
                   level={group.data.level}
                   name={group.data.name}
                   schedule={group.data.schedule}
-                  numberOfStudents={"10"}
+                  numberOfStudents={
+                    students.filter((st) => {
+                      return st.data.groupId === group.id;
+                    }).length
+                  }
                   teacher={teacher
                     .filter((item) => {
                       return item.id === group.data.groupTeacher;
                     })
                     .map((x) => (
                       <div className="cip-group-teacher bg-dark">
-                        <img src={x.data.image} alt="" />
+                        {/* <img src={x.data.image} alt="" /> */}
                         <p>{x.data.name}</p>
                       </div>
                     ))}

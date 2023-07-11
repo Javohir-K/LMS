@@ -32,12 +32,6 @@ function TeacherInfoPage() {
       });
   }, []);
 
-  // const groups = groupList.map((item) => {
-  //   return item.collection;
-  // });
-
-  console.log(groupList);
-
   if (teacherInfo === undefined) {
     return <Page404 />;
   } else if (!teacherInfo) {
@@ -87,14 +81,13 @@ function TeacherInfoPage() {
 
           {groupList.length !== 0
             ? groupList.map((item) => (
-                <Link to={"/groups"}>
-                  <GroupCard
-                    level={item.data.level}
-                    name={item.data.name}
-                    schedule={item.data.schedule}
-                    numberOfStudents={"10"}
-                  />
-                </Link>
+                <GroupCard
+                  groupId={item.id}
+                  level={item.data.level}
+                  name={item.data.name}
+                  schedule={item.data.schedule}
+                  numberOfStudents={"10"}
+                />
               ))
             : "No groups"}
         </div>

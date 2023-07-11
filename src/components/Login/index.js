@@ -19,6 +19,7 @@ function Login() {
 
   return (
     <div className="login">
+      <h2>Welcome to LMS Edec!</h2>
       <div className="login_container bg-dark2">
         <h2>Sign In</h2>
         <form action="">

@@ -1,20 +1,25 @@
-.course-card{
-    padding: 1rem;
-    border-radius: 1rem;
-    flex: 25%;
-    max-width: calc(25% - .75rem);
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
+.course-card {
+  padding: 1rem;
+  border-radius: 1rem;
+  flex: 25%;
+  max-width: calc(25% - 0.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.cc-top img{
-    width: 100%;
-    height: 12rem;
-    object-fit: cover;
-    border-radius: .5rem;
+.cc-top img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
-.cc-info{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.cc-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.cc-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

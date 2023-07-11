@@ -5,10 +5,10 @@ import { format } from "date-fns";
 import { db } from "../../firebase";
 
 function Statistics() {
-  const currentDate = format(new Date(), "MMM d, yyyy");
+  const currentDate = format(new Date(), "MMM d, yyyy. 'Time:' hh:mm");
   const [teachers, setTeachers] = useState([]);
-  const [groups, setGroups] = useState([])
-
+  const [groups, setGroups] = useState([]);
+  const [students, setStudents] = useState([]);
   useEffect(() => {
     db.collection("teachers").onSnapshot((snapshot) => {
       setTeachers(
@@ -16,7 +16,10 @@ function Statistics() {
       );
     });
     db.collection("groups").onSnapshot((snapshot) => {
-      setGroups(
+      setGroups(snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() })));
+    });
+    db.collection("students").onSnapshot((snapshot) => {
+      setStudents(
         snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
       );
     });
@@ -28,7 +31,7 @@ function Statistics() {
       <p>{currentDate}</p>
       <div className="statistics-wrap">
         <StatisticsCard
-          count={132}
+          count={students.length}
           name={"Students"}
           icon={<i class="fa-solid fa-graduation-cap"></i>}
         />
@@ -39,7 +42,7 @@ function Statistics() {
         />
         <StatisticsCard
           count={groups.length}
-          name={'Groups'}
+          name={"Groups"}
           icon={<i class="fa-solid fa-book"></i>}
         />
         <StatisticsCard
