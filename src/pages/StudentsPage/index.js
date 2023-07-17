@@ -53,7 +53,7 @@ function StudentsPage() {
           />
         </div>
         <Link to={"/add-student"}>
-          <button className="bg-accent text-white">Add student</button>
+          <button className="def-btn">Add student</button>
         </Link>
       </div>
       <div className="sp-students-list">

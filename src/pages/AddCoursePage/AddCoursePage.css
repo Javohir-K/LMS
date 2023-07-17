@@ -27,15 +27,11 @@
   border: none;
   outline: none;
   font-size: 1rem;
-  padding: .5rem;
+  padding: 0.5rem;
   color: var(--light);
 }
 
-.acp-form form > button{
-    padding: .5rem;
-    width: 100%;
-    margin-top: 1rem;
-    border-radius: .5rem;
-    font-size: 1rem;
-    font-weight: bold;
+.acp-form form > button {
+  width: 100%;
+  margin-top: 1rem;
 }

@@ -27,19 +27,6 @@
   color: var(--light);
   font-size: 1rem;
 }
-.login_container form button {
-  padding: 0.6rem 1.2rem;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  margin-top: 1.2rem;
-  font-size: 1rem;
-  width: fit-content;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.login_container form button:hover {
-  opacity: 0.8;
-}
 .login_container * {
   margin-top: 10px;
 }

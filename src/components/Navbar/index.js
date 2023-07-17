@@ -82,7 +82,7 @@ function Navbar() {
           </div>
         </div>
         <div className="navbar-right">
-          <button onClick={handleAuth} className="bg-accent text-white">
+          <button onClick={handleAuth} className="def-btn">
             Logout
           </button>
         </div>

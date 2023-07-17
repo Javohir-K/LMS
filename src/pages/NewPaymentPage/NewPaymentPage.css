@@ -1,0 +1,35 @@
+.npp-header h2 {
+  text-align: center;
+}
+.npp-form {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+.npp-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 30rem;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+}
+.npp-form form > div {
+  display: flex;
+  align-items: center;
+}
+
+.npp-form form > div > * {
+  flex: 1;
+}
+.npp-form form > div > :where(select, input) {
+  border: none;
+  padding: 0.5rem;
+  outline: none;
+  font-size: 0.9rem;
+  background: var(--grey);
+  color: var(--light);
+}
+.npp-form form > div option {
+  padding: 0.5rem;
+}

@@ -5,7 +5,7 @@
     overflow-y: hidden;
 }
 .dashboard-content{
-    flex: 4;
+    flex: 5;
     height: 100vh;
     overflow-y: auto;
 }

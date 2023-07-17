@@ -9,9 +9,16 @@ function Statistics() {
   const [teachers, setTeachers] = useState([]);
   const [groups, setGroups] = useState([]);
   const [students, setStudents] = useState([]);
+  const [payments, setPayments] = useState([]);
+
   useEffect(() => {
     db.collection("teachers").onSnapshot((snapshot) => {
       setTeachers(
+        snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+      );
+    });
+    db.collection("payments").onSnapshot((snapshot) => {
+      setPayments(
         snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
       );
     });
@@ -24,6 +31,12 @@ function Statistics() {
       );
     });
   }, []);
+
+  let budget = 0;
+
+  payments.map((x) => {
+    budget += parseInt(x.data.amount);
+  });
 
   return (
     <div className="statistics">
@@ -46,7 +59,7 @@ function Statistics() {
           icon={<i class="fa-solid fa-book"></i>}
         />
         <StatisticsCard
-          count={`2,3k$`}
+          count={Math.floor(budget * 0.000086) + "$"}
           name={"Monthly budget"}
           icon={<i class="fa-solid fa-chart-simple"></i>}
         />

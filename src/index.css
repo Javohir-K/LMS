@@ -66,9 +66,16 @@ button {
   border: none;
   outline: none;
 }
-form > button {
+
+.def-btn {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  background: var(--accent);
+  color: var(--light);
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
   transition: 0.2s ease-in-out;
 }
-form > button:hover {
+.def-btn:hover {
   opacity: 0.8;
 }

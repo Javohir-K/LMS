@@ -13,6 +13,8 @@ import AddGroupPage from "../AddGroupPage";
 import StudentsPage from "../StudentsPage";
 import AddStudentPage from "../AddStudentPage";
 import GroupInfoPage from "../GroupInfoPage";
+import PaymentPage from "../PaymentPage";
+import NewPaymentPage from "../NewPaymentPage";
 
 function Dashboard() {
   return (
@@ -31,6 +33,8 @@ function Dashboard() {
           <Route element={<StudentsPage />} path="/students" />
           <Route element={<AddStudentPage />} path="/add-student" />
           <Route element={<GroupInfoPage />} path="/groups/:id" />
+          <Route element={<PaymentPage />} path="/payments" />
+          <Route element={<NewPaymentPage />} path="/new-payment" />
         </Routes>
       </div>
     </div>

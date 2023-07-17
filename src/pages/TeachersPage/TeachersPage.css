@@ -13,9 +13,3 @@
   align-items: center;
   justify-content: space-between;
 }
-.tp-top button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
-  font-weight: bold;
-  font-size: 1rem;
-}

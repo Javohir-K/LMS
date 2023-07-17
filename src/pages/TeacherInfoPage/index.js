@@ -16,7 +16,9 @@ function TeacherInfoPage() {
   const [teacherInfo, setTeacherInfo] = useState(null);
   const [groupList, setGroupList] = useState([]);
   const [students, setStudents] = useState([]);
+  const [payments, setPayments] = useState([]);
   const { id } = useParams();
+
   useEffect(() => {
     db.collection("teachers")
       .doc(id)
@@ -30,6 +32,13 @@ function TeacherInfoPage() {
         snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
       );
     });
+    db.collection("payments")
+      .where("paymentFor", "==","july")
+      .onSnapshot((snapshot) => {
+        setPayments(
+          snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+        );
+      });
     db.collection("groups")
       .where("groupTeacher", "==", id)
       .onSnapshot((snapshot) => {
@@ -44,6 +53,19 @@ function TeacherInfoPage() {
   } else if (!teacherInfo) {
     return <LoadingPage />;
   }
+
+  let salary = 0;
+
+  groupList.map(n=>{
+    payments
+    .filter((a) => {
+      return a.data.groupId === n.id
+    })
+    .map((x) => {
+      salary += parseInt(x.data.amount);
+    });
+    
+  })
 
   return (
     <div className="teacher-info-page">
@@ -101,6 +123,10 @@ function TeacherInfoPage() {
                 />
               ))
             : "No groups"}
+        </div>
+        <h2>Salary</h2>
+        <div>
+          <p>{new Intl.NumberFormat().format(salary/2)} sum</p>
         </div>
       </div>
     </div>

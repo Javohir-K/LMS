@@ -34,7 +34,7 @@ function CoursesPage() {
       <div className="cp-top">
         <h2>All Courses</h2>
         <Link to={"/add-course"}>
-          <button className="bg-accent text-white">Add course</button>
+          <button className="def-btn">Add course</button>
         </Link>
       </div>
       <div className="courses-list">

@@ -1,0 +1,8 @@
+.payment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.payment-list {
+  padding-top: 1rem;
+}

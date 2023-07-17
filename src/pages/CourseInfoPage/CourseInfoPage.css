@@ -16,12 +16,6 @@
   align-items: center;
   justify-content: space-between;
 }
-.cip-bottom-action button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  font-size: 1rem;
-}
 .cip-group-teacher {
   display: flex;
   gap: 0.5rem;

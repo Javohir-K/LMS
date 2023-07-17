@@ -3,7 +3,6 @@ import "./PaymentCard.css";
 
 function PaymentCard({
   name,
-  subject,
   group,
   paymentFor,
   timeOfPayment,
@@ -15,19 +14,16 @@ function PaymentCard({
         <p>{name}</p>
       </div>
       <div>
-        <p>{subject}</p>
-      </div>
-      <div>
         <p>{group}</p>
       </div>
       <div>
-        <p>{paymentFor}</p>
+        <p>{paymentFor.charAt(0).toUpperCase() + paymentFor.slice(1)}</p>
       </div>
       <div>
         <p>{timeOfPayment}</p>
       </div>
       <div>
-        <p>{amountOfPayment}</p>
+        <p>{amountOfPayment} sum</p>
       </div>
     </div>
   );

@@ -24,9 +24,9 @@ function TeachersPage() {
     <div className="teachers-page">
       <div className="tp-top">
         <h2>Our Teachers</h2>
-        <button className="bg-accent text-white">
-          <Link to={"/add-teacher"}>Add teacher</Link>
-        </button>
+        <Link to={"/add-teacher"}>
+          <button className="def-btn">Add teacher</button>
+        </Link>
       </div>
       <div className="teachers-list">
         {teachers.map((teacher) => (

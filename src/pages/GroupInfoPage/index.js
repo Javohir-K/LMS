@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./GroupInfoPage.css";
 import { Link, useParams } from "react-router-dom";
 import { db } from "../../firebase";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import LoadingPage from "../LoadingPage";
 
 function GroupInfoPage() {
   const [groupInfo, setGroupInfo] = useState(null);
   const [students, setStudents] = useState([]);
   const [teacher, setTeacher] = useState([]);
-  const [attendance, setAttendance] = useState('');
+  const [attendance, setAttendance] = useState("");
   const { id } = useParams();
 
   useEffect(() => {
@@ -38,7 +36,7 @@ function GroupInfoPage() {
     return <LoadingPage />;
   }
 
-  console.log(attendance);
+  // console.log(attendance);
 
   return (
     <div className="group-info-page">
@@ -71,17 +69,19 @@ function GroupInfoPage() {
                 <td>{(index += 1)}</td>
                 <td>{st.data.name}</td>
                 <td>
-                  <input
-                    type="checkbox"
-                    value={'+'}
+                  <select
                     onChange={(e) => setAttendance(e.target.value)}
-                    name=""
-                    id=""
-                  />
+                    value={attendance}
+                  >
+                    <option value="attendance">Attended?</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
                 </td>
               </tr>
             ))}
           </table>
+          <button>submit</button>
         </div>
       </div>
     </div>

@@ -8,12 +8,12 @@ function Homepage() {
   return (
     <div className="homepage">
       <Statistics />
-      <RecentPayments />
       <div>
         <h2>Sales graph</h2>
         <br />
         <div className="chart-wrap wrapper">{renderLineChart}</div>
       </div>
+      <RecentPayments />
     </div>
   );
 }

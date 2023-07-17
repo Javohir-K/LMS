@@ -93,7 +93,7 @@ function AddGroupPage() {
               ))}
             </select>
           </div>
-          <button className="bg-accent text-white">Submit</button>
+          <button className="def-btn">Submit</button>
         </form>
       </div>
     </div>

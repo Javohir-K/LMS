@@ -42,7 +42,7 @@ function Login() {
           <button
             type="submit"
             onClick={signIn}
-            className="login_signInButton bg-accent text-white"
+            className="login_signInButton def-btn"
           >
             Sign In
           </button>

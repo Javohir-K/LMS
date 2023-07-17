@@ -56,7 +56,7 @@ function CourseInfoPage() {
         <div className="cip-bottom-action">
           <h2>Groups:</h2>
           <Link to={`/courses/${id}/add-new-group`}>
-            <button className="bg-accent text-white">Create new group</button>
+            <button className="def-btn">Create new group</button>
           </Link>
         </div>
         <div className="cip-groups-list">
